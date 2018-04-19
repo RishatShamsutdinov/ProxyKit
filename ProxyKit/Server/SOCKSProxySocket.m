@@ -30,12 +30,22 @@
 #define TIMEOUT_TOTAL        80.00
 
 #import "SOCKSProxySocket.h"
-@import CocoaLumberjack;
-#if DEBUG
-static const int ddLogLevel = DDLogLevelVerbose;
+
+#if __has_include(<CocoaLumberjack/CocoaLumberjack.h>)
+    @import CocoaLumberjack;
+#   if DEBUG
+        static const int ddLogLevel = DDLogLevelVerbose;
+#   else
+        static const int ddLogLevel = DDLogLevelOff;
+#   endif
 #else
-static const int ddLogLevel = DDLogLevelOff;
+#   define DDLogError(frmt, ...)    {}
+#   define DDLogWarn(frmt, ...)     {}
+#   define DDLogInfo(frmt, ...)     {}
+#   define DDLogDebug(frmt, ...)    {}
+#   define DDLogVerbose(frmt, ...)  {}
 #endif
+
 #include <arpa/inet.h>
 
 @interface SOCKSProxySocket()
