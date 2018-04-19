@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@import CocoaAsyncSocket;
+#import <CocoaAsyncSocket/GCDAsyncSocket.h>
 #import "SOCKSProxySocket.h"
 
 @class SOCKSProxy;

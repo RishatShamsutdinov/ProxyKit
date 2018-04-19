@@ -9,7 +9,7 @@
 #import "GCDAsyncProxySocket.h"
 
 #if __has_include(<CocoaLumberjack/CocoaLumberjack.h>)
-    @import CocoaLumberjack;
+#   import <CocoaLumberjack/CocoaLumberjack.h>
 #   if DEBUG
         static const int ddLogLevel = DDLogLevelVerbose;
 #   else
